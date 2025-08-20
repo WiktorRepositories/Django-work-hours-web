@@ -1,0 +1,53 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+{% include "_form_user_hours.html" %}
+
+<div>
+  <table class="table table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">Data</th>
+        <th scope="col">Travel start</th>
+        <th scope="col">Travel end</th>
+
+        <th scope="col">Work start </th>
+        <th scope="col">Work end </th>
+
+        <th scope="col">Normal time </th>
+
+        <th scope="col">Project</th>
+        <th scope="col">Netz/Vor</th>
+
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i  in currententry %}
+      <tr>
+        <th scope="row">{{cd}}</th>
+
+        <td>{{i.travel_start}}</td>
+        <td>{{i.travel_end}}</td>
+
+        <td>{{i.work_start}}</td>
+        <td>{{i.work_end}}</td>
+
+        <td>{{i.workimes_standard}}</td>
+
+        <td>{{i.project_machine}}</td>
+        <td>{{i.netzplan_vorgang}}</td>
+
+        <td>Enter/Update</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+<div>
+  <a href="{% url 'week_overview' %}"> <button>Go back</button> </a>
+</div>
+
+{% endblock %}

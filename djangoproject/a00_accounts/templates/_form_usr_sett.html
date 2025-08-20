@@ -1,0 +1,22 @@
+<div class="container-sm">
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="id_weeknum" class="form-label">Selected week number</label>
+    <input type="date" class="form-control" id="id_weeknum" name="weeknum" placeholder="First day of demand week">
+
+    <div class="mb-3">
+      <label for="id_datestart" class="form-label">Date Start</label>
+      <input type="date" class="form-control" id="id_datestart" name="date_start" placeholder="Date start">
+
+      <label for="id_dateend" class="form-label">Date End</label>
+      <input type="date" class="form-control" id="id_dateend" name="date_end" placeholder="Date end">
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-warning">Save</button>
+    </div>
+
+  </form>
+
+</div>

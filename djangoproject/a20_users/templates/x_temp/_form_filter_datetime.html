@@ -1,0 +1,45 @@
+<div class="container-sm">
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <!-- <div class="mb-3">
+
+      <label for="id_weeknum" class="form-label">Selected week number</label>
+      <input type="number" class="form-control" id="id_weeknum" placeholder="Example input placeholder">
+
+      <label for="id_month" class="form-label">Selected month</label>
+      <select name="sel_month" class="form-control" id="id_month" placeholder="Example input placeholder">
+        <option value="0"></option>
+        <option value="1">-01 | Styczen |</option>
+        <option value="2">-02 | Luty |</option>
+        <option value="3">-03 | Marzec |</option>
+        <option value="4">-04 | Kwiecien |</option>
+        <option value="5">-05 | Maj |</option>
+        <option value="6">-06 | Czerwiec |</option>
+        <option value="7">-07 | Lipiec |</option>
+        <option value="8">-08 | Sierpien |</option>
+        <option value="9">-09 | Wrzesien |</option>
+        <option value="10">-10 | Pazdziernik |</option>
+        <option value="11">-11 | Listopad |</option>
+        <option value="12">-12 | Kwiecien |</option>
+      </select>
+    </div> -->
+
+    <label for="id_weeknum" class="form-label">Selected week number</label>
+    <input type="date" class="form-control" id="id_weeknum" name="weeknum" placeholder="First day of demand week">
+
+    <div class="mb-3">
+      <label for="id_datestart" class="form-label">Date Start</label>
+      <input type="date" class="form-control" id="id_datestart" name="date_start" placeholder="Date start">
+
+      <label for="id_dateend" class="form-label">Date End</label>
+      <input type="date" class="form-control" id="id_dateend" name="date_end" placeholder="Date end">
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-warning">Save</button>
+    </div>
+
+  </form>
+
+</div>

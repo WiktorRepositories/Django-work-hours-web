@@ -1,0 +1,42 @@
+<div>
+  <table class="table table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">Travel start</th>
+        <th scope="col">Travel end</th>
+
+        <th scope="col">Work start </th>
+        <th scope="col">Work end </th>
+
+        <th scope="col">Workimes standard </th>
+
+        <th scope="col">Project</th>
+        <th scope="col">Netzplan/Vor</th>
+
+        <th scope="col">#</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <form action="" method="post">
+          {% csrf_token %}
+
+          <td>{{form.travel_start}}</td>
+          <td>{{form.travel_end}}</td>
+
+          <td>{{form.work_start}}</td>
+          <td>{{form.work_end}}</td>
+
+          <td>{{form.worktimes_standard}}</td>
+
+          <td>{{form.project_machine}}</td>
+          <td>{{form.netzplan_vorgang}}</td>
+
+          <td> <input type="submit" value="Submit"> </td>
+        </form>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

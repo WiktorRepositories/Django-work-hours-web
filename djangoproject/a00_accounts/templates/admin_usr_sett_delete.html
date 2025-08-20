@@ -1,0 +1,34 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+  <h3>Delete item?</h3>
+</div>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">User</th>
+        <th scope="col">Year selected</th>
+        <th scope="col">Month selected</th>
+        <th scope="col">Week selected</th>
+        <th scope="col">Date start</th>
+        <th scope="col">Date end</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{user_settings.user}}</th>
+        <td>{{user_settings.year}}</td>
+        <td>{{user_settings.monthSelected}}</td>
+        <td>{{user_settings.rangeStart}}</td>
+        <td>{{user_settings.rangeEnd}}</td>
+        <td>
+          {% include "form_delete.html" %}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

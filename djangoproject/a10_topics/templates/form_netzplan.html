@@ -1,0 +1,32 @@
+<div>
+  <form method="post" name="netzplan">
+    {% csrf_token %}
+    <table class="table table-striped">
+
+      <thead>
+        <tr>
+          <th scope="col"> New entry: </th>
+          <th scope="col"> Number </th>
+          <th scope="col"> Description </th>
+          <th scope="col"> Submit </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th scope="row"> lp </th>
+          <th scope="row">
+            <input type="text" name="number" id="number" placeholder="netzplan number">
+          </th>
+          <th scope="row">
+            <input type="text" name="description" id="description" placeholder="descrition">
+          </th>
+          <th scope="row">
+            <button type="submit"> Submit </button>
+          </th>
+        </tr>
+      </tbody>
+
+    </table>
+  </form>
+</div>

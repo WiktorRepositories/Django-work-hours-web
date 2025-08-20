@@ -1,0 +1,49 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+{% include "_form_all_hours.html" %}
+
+<div>
+  <table class="table table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User</th>
+        <th scope="col">Data</th>
+
+        <th scope="col">Travel start</th>
+        <th scope="col">Travel end</th>
+
+        <th scope="col">Work start </th>
+        <th scope="col">Work end </th>
+
+        <th scope="col">Project</th>
+        <th scope="col">Netz/Vor</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <th scope="row">{{query.pk}}</th>
+        <th scope="row">{{query.user}}</th>
+
+        <th>{{query.date}}</th>
+
+        <td>{{query.travel_start}}</td>
+        <td>{{query.travel_end}}</td>
+
+        <td>{{query.work_start}}</td>
+        <td>{{query.work_end}}</td>
+
+        <td>{{query.project_machine}}</td>
+        <td>{{query.netzplan_vorgang}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

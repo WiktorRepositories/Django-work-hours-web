@@ -1,0 +1,38 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+  <h3>User settings</h3>
+</div>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">User</th>
+        <th scope="col">Year selected</th>
+        <th scope="col">Month selected</th>
+        <th scope="col">Week selected</th>
+        <th scope="col">Date start</th>
+        <th scope="col">Date end</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in users_settings %}
+      <tr>
+        <th scope="row">{{i.user}}</th>
+        <td>{{i.year}}</td>
+        <td>{{i.monthSelected}}</td>
+        <td>{{i.weekSelected}}</td>
+        <td>{{i.rangeStart}}</td>
+        <td>{{i.rangeEnd}}</td>
+        <td>
+          <a href="{% url 'admin_usr_sett_modify' i.pk %}"> <button>modify</button> </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

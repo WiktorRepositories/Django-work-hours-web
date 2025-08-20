@@ -1,0 +1,58 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+  <h2>Current entry will be deleted:</h2>
+</div>
+
+<div>
+  <table class="table table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">Data</th>
+        <th scope="col">Travel start</th>
+        <th scope="col">Travel end</th>
+        <th scope="col">Travel time</th>
+
+        <th scope="col">Work start </th>
+        <th scope="col">Work end </th>
+        <th scope="col">Normal time </th>
+        <th scope="col">Over time </th>
+        <th scope="col">Break time </th>
+
+        <th scope="col">Project</th>
+        <th scope="col">Netz/Vor</th>
+
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <th scope="row">{{current_entry.date_to_iso}}</th>
+
+        <td>{{current_entry.travelstart}}</td>
+        <td>{{current_entry.travelend}}</td>
+        <td>{{current_entry.travel_time}}</td>
+
+        <td>{{current_entry.workstart}}</td>
+        <td>{{current_entry.workend}}</td>
+        <td>{{current_entry.worktime}}</td>
+
+        <td>{{current_entry.project_machine}}</td>
+        <td>{{current_entry.netzplan_vorgang}}</td>
+
+        <td>
+          <div>
+            {% include "_form_delete.html" %}
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+</div>
+
+{% endblock %}

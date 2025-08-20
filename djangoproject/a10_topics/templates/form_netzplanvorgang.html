@@ -1,0 +1,51 @@
+<div>
+  <form method="post" name="netzplan_vorgang">
+    {% csrf_token %}
+    <table class="table table-striped">
+
+      <thead>
+        <tr>
+          <th scope="col"> New entry: </th>
+          <th scope="col"> Netzplan </th>
+          <th scope="col"> Vorgang </th>
+          <th scope="col"> Description </th>
+          <th scope="col"> Submit </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th scope="row"> lp </th>
+
+          <th scope="row">
+            <select name="netzplan" class="form-control" id="netzplan" placeholder="select netzplan">
+              <option value="null"> -- </option>
+              {% for i in netzplan_items %}
+              <option value="{{ i.pk }}">{{i}}</option>
+              {% endfor %}
+            </select>
+          </th>
+
+          <th scope="row">
+            <select name="vorgang" class="form-control" id="vorgang" placeholder="select vorgang">
+              <option value="null"> -- </option>
+              {% for j in vorgang_items %}
+              <option value="{{ j.pk }}">{{j}}</option>
+              {% endfor %}
+            </select>
+          </th>
+
+          <th scope="row">
+            <input type="text" name="description" id="description" placeholder="descrition">
+          </th>
+
+          <th scope="row">
+            <button type="submit"> Submit </button>
+          </th>
+
+        </tr>
+      </tbody>
+
+    </table>
+  </form>
+</div>

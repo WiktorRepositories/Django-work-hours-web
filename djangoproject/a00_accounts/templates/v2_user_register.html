@@ -1,0 +1,40 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+  <h3> Register new user: </h3>
+</div>
+
+<h2> {{INFO}} </h2>
+
+<div>
+  <form action="{% url 'v2_user_register' %}" method="post" id="id-user-register" class="input-group flex-nowrap">
+    {% csrf_token %}
+
+    <!-- <div>
+      <span class="input-group-text" id="addon-wrapping">username</span>
+      <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="addon-wrapping">
+    </div>
+
+    <div>
+      <span class="input-group-text" id="addon-wrapping">password 1</span>
+      <input type="password" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="addon-wrapping">
+
+      <span class="input-group-text" id="addon-wrapping">password 1</span>
+      <input type="password" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="addon-wrapping">
+    </div> <br> -->
+
+    {{form}}
+
+    <div>
+      <input type="submit" value="submit">
+    </div>
+
+
+  </form>
+</div>
+
+{% endblock %}

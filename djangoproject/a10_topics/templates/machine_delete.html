@@ -1,0 +1,31 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"> Project </th>
+        <th scope="col"> Machine </th>
+        <th scope="col"> Description </th>
+        <th scope="col"> Link </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{machine.id}}</th>
+        <td>{{machine.project}}</td>
+        <td>{{machine.machine}}</td>
+        <td>{{machine.description}}</td>
+        <td>
+          <div>
+            {% include "form_delete.html" %}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

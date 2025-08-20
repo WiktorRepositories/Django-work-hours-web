@@ -1,0 +1,39 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div class="container text-center">
+  <!-- Header -->
+  <div class="row">
+    <div class="col">
+      Current display settings
+    </div>
+    <div class="col">
+      {{user.username}}
+    </div>
+  </div>
+
+  <!-- Rows -->
+  <div class="row">
+    <div class="col">Year selected:</div>
+    <div class="col">Month selected:</div>
+    <div class="col">Week selected</div>
+    <div class="col">Data from</div>
+    <div class="col">Data to</div>
+  </div>
+
+  <!-- Data -->
+  <div class="row">
+    <div class="col">{{usersettings.year}}</div>
+    <div class="col">{{usersettings.monthSelected}}</div>
+    <div class="col">{{usersettings.weekSelected}}</div>
+    <div class="col">{{usersettings.rangeStart}}</div>
+    <div class="col">{{usersettings.rangeEnd}}</div>
+  </div>
+
+</div>
+
+<div>
+  {% include "_form_user_settings.html" %}
+</div>
+
+{% endblock %}

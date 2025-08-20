@@ -1,0 +1,22 @@
+<div>
+    <table class="table table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">Choise machine</th>
+                <th scope="col">Filter</th>
+                <th scope="col">See all</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <td>{{form.machine_project}}</td>
+                    <td> <input type="submit" value="Submit"> </td>
+                </form>
+                <td> <a href="{% url 'project_connections' %}"> <button>Refresh or go back</button> </a> </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

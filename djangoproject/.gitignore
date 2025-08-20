@@ -1,0 +1,10 @@
+__init__.py
+*.pyc
+_ve_/
+myvenv/
+__pycache__/
+.pytest_cache/
+.idea/
+db.sqlite3
+*.code-workspace
+*.zip

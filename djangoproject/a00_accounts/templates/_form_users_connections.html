@@ -1,0 +1,26 @@
+<div>
+  <table class="table table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Users</th>
+        <th scope="col">Projects</th>
+        <th scope="col">Add new connection</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <form action="" method="post">
+          {% csrf_token %}
+
+          <td>{{form.description}}</td>
+          <td>{{form.users}}</td>
+          <td>{{form.projects}}</td>
+
+          <td> <input type="submit" value="Submit"> </td>
+        </form>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,39 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div class="container text-center">
+  <!-- Header -->
+  <div class="row">
+    <div class="col">
+      <span> Admin User modification: </span>
+    </div>
+    <div class="col">
+      {{user_settings.user.username}}
+    </div>
+  </div>
+
+  <!-- Rows -->
+  <div class="row">
+    <div class="col">Year selected:</div>
+    <div class="col">Month selected:</div>
+    <div class="col">Week selected</div>
+    <div class="col">Data from</div>
+    <div class="col">Data to</div>
+  </div>
+
+  <!-- Data -->
+  <div class="row">
+    <div class="col">{{user_settings.year}}</div>
+    <div class="col">{{user_settings.monthSelected}}</div>
+    <div class="col">{{user_settings.weekSelected}}</div>
+    <div class="col">{{user_settings.rangeStart}}</div>
+    <div class="col">{{user_settings.rangeEnd}}</div>
+  </div>
+
+</div>
+
+<div>
+  {% include "_form_usr_sett.html" %}
+</div>
+
+{% endblock %}

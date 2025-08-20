@@ -1,0 +1,39 @@
+<div>
+  <form method="post" name="emails">
+    {% csrf_token %}
+    <table class="table table-striped">
+
+      <thead>
+        <tr>
+          <th scope="col"> New entry: </th>
+          <th scope="col"> Email </th>
+          <th scope="col"> First Name </th>
+          <th scope="col"> Last Name </th>
+          <th scope="col"> Description </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th scope="row"> # </th>
+
+          <th scope="row">
+            <input type="email" name="email" id="email" placeholder="email">
+          </th>
+          <th scope="row">
+            <input type="text" name="firstName" id="firstName" placeholder="first name">
+          </th>
+          <th scope="row">
+            <input type="text" name="lastName" id="lastName" placeholder="last name">
+          </th>
+          <th scope="row">
+            <input type="text" name="description" id="description" placeholder="description">
+          </th>
+          <th scope="row">
+            <button type="submit"> Submit </button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

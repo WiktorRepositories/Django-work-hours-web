@@ -1,0 +1,29 @@
+<div class="container text-center">
+  <div class="row align-items-center">
+
+    <form method="post" name="filter_date">
+      {% csrf_token %}
+      <div class="col">
+        <label for="id_date_now"> <span>Year:</span> </label>
+        <input type="date" id="id_date_now" name="date_now" value="{{settings.date_start}}">
+      </div>
+
+      <div class="col">
+        <label for="id_days_amount"> <span> Amount of days: </span> </label>
+        <select name="days_amount" id="id_days_amount">
+          <option value="7">1 week, 7 days</option>
+          <option value="14">2 weeks, 14 days</option>
+          <option value="21">3 weeks, 21 days</option>
+          <option value="28">4 weeks, 28 days</option>
+          <option value="35">5 weeks, 35 days</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <button type="submit"> Show </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

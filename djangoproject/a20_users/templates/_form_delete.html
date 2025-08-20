@@ -1,0 +1,5 @@
+<form action="" method="post" name="delete-form">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary" name="operation" value="cancel">cancel</button>
+    <button type="submit" class="btn btn-danger" name="operation" value="delete">delete</button>
+</form>

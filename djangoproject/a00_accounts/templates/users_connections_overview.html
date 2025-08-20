@@ -1,0 +1,47 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+{% include "_form_users_connections.html" %}
+
+<div>
+  <h3>User Connections</h3>
+</div>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Description</th>
+        <th scope="col">Users</th>
+        <th scope="col">Projects</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in cooperations %}
+      <tr>
+        <th scope="row">{{i.pd}}</th>
+        <td>{{i.description}}</td>
+        <td>
+          {% for j in i.users %}
+          <ul>{{j}}</ul>
+          {% endfor %}
+        </td>
+        <td>
+          {% for j in i.projects %}
+          <ul>{{j}}</ul>
+          {% endfor %}
+        </td>
+        <td>
+          <a href="{% url 'users_connections_delete' i.pk %}"> <button type="button"
+              class="btn btn-danger">delete</button> </a>
+          <a href="{% url 'users_connections_modify' i.pk %}"> <button type="button"
+              class="btn btn-warning">modify</button> </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

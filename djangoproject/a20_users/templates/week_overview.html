@@ -1,0 +1,53 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+{% include "_form_filter_date.html" %}
+
+<div>
+  <table class="table table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">Data</th>
+        <th scope="col">Travel start</th>
+        <th scope="col">Travel end</th>
+
+        <th scope="col">Work start </th>
+        <th scope="col">Work end </th>
+
+        <th scope="col">Worktimes standard</th>
+
+        <th scope="col">Project</th>
+        <th scope="col">Netz/Vor</th>
+
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for i in weekhours %}
+      <tr>
+        <th scope="row">{{i.date}}</th>
+
+        <td>{{i.travelstart_to_iso}}</td>
+        <td>{{i.travelend_to_iso}}</td>
+
+        <td>{{i.workstart_to_iso}}</td>
+        <td>{{i.workend_to_iso}}</td>
+
+        <td>{{i.workimes_standard}}</td>
+
+        <td>{{i.project_machine}}</td>
+        <td>{{i.netzplan_vorgang}}</td>
+
+        <td>
+          <a href="{% url 'xday_overview' id=1 cd=i %}"> <button>change</button> </a>
+        </td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

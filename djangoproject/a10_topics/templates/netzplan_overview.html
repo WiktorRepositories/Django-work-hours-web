@@ -1,0 +1,34 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+{% include "form_netzplan.html" %}
+
+<br>
+<h2>Netzplan items specyfications:</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"> ID/PK </th>
+      <th scope="col"> Number </th>
+      <th scope="col"> Description </th>
+      <th scope="col"> Link </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for i in netzplan_items %}
+    <tr>
+      <th scope="row"> {{ i.id }} </th>
+      <td scope="row"> {{ i.number }} </td>
+      <td scope="row"> {{ i.description }} </td>
+      <td scope="col">
+        <a href="{% url 'netzplan_modify' i.pk %}"> <button>change</button> </a>
+        <a href="{% url 'netzplan_delete' i.pk %}"> <button>delete</button> </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

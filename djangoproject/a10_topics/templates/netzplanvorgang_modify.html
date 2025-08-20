@@ -1,0 +1,36 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"> # </th>
+
+                <th scope="col"> Netzplan number </th>
+                <th scope="col"> Netzplan description </th>
+
+                <th scope="col"> Vorgang number </th>
+                <th scope="col"> Vorgang description </th>
+
+                <th scope="col"> Link </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{netzplanvorgang.id}}</th>
+                <td>{{netzplanvorgang.netzplan.number}}</td>
+                <td>{{netzplanvorgang.netzplan.description}}</td>
+                <td>{{netzplanvorgang.vorgang.number}}</td>
+                <td>{{netzplanvorgang.vorgang.description}}</td>
+                <td>
+                    <div>
+                        {% include "form_netzplanvorgang.html" %}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

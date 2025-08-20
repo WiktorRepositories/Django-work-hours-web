@@ -1,0 +1,33 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Code</th>
+        <th scope="col">text</th>
+        <th scope="col">Description</th>
+        <th scope="col">Work type id</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{workdata.id}}</th>
+        <td>{{workdata.code}}</td>
+        <td>{{workdata.text}}</td>
+        <td>{{workdata.description}}</td>
+        <td>{{workdata.workType_id}}</td>
+        <td>
+          <div>
+            {% include "form_work_data.html" %}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

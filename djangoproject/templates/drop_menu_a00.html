@@ -1,0 +1,13 @@
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Accounts
+    </a>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'admin_users_overview' %}">Admin all users</a></li>
+        <li><a class="dropdown-item" href="{% url 'admin_usr_sett_overview' %}">Admin users settings</a></li>
+        <li><a class="dropdown-item" href="{% url 'all_hours_overview' %}">Admin all hours</a></li>
+        <li> </li>
+
+        <li><a class="dropdown-item" href="{% url 'users_connections_overview' %}">User connections</a></li>
+    </ul>
+</li>

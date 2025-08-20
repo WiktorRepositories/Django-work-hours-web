@@ -1,0 +1,33 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">srccode</th>
+        <th scope="col">description</th>
+        <th scope="col">work time</th>
+        <th scope="col">break time</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{worktime.id}}</th>
+        <td>{{worktime.srccode}}</td>
+        <td>{{worktime.description}}</td>
+        <td>{{worktime.workTime}}</td>
+        <td>{{worktime.breakTime}}</td>
+        <td>
+          <div>
+            {% include "form_delete.html" %}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

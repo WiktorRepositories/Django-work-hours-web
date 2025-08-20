@@ -1,0 +1,40 @@
+<div>
+  <form method="post" name="worktimes">
+    {% csrf_token %}
+    <table class="table table-striped">
+
+      <thead>
+        <tr>
+          <th scope="col"> New entry: </th>
+          <th scope="col"> Country </th>
+          <th scope="col"> Description </th>
+          <th scope="col"> Work time </th>
+          <th scope="col"> Break time </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th scope="row"> # </th>
+          <th scope="row">
+            <input type="text" name="country" id="country" placeholder="country">
+          </th>
+          <th scope="row">
+            <input type="text" name="description" id="description" placeholder="description">
+          </th>
+          <th scope="row">
+            <input type="time" name="workTime" id="workTime" step="900" min="00:00" max="11:00"
+              pattern="[0-2][0-9]:[0-5][0-9]">
+          </th>
+          <th scope="row">
+            <input type="time" name="breakTime" id="breakTime" step="900" min="00:00" max="01:00"
+              pattern="[0-2][0-9]:[0-5][0-9]">
+          </th>
+          <th scope="row">
+            <button type="submit"> Submit </button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

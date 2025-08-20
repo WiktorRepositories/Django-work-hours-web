@@ -1,0 +1,38 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+{% include "form_work_data.html" %}
+
+<br>
+<h2>All Work informations</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"> ID/PK </th>
+      <th scope="col"> Code </th>
+      <th scope="col"> Text </th>
+      <th scope="col"> Description </th>
+      <th scope="col"> Work typ id </th>
+      <th scope="col"> Link </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for w in workdatas %}
+    <tr>
+      <th scope="row"> {{ w.id }} </th>
+      <td scope="row"> {{ w.code }} </td>
+      <td scope="row"> {{ w.text }} </td>
+      <td scope="row"> {{ w.description }} </td>
+      <td scope="row"> {{ w.workType_id.code }} {{ w.workType_id.description }}</td>
+      <td scope="col">
+        <a href="{% url 'work_data_modify' w.pk %}"> <button>change</button> </a>
+        <a href="{% url 'work_data_delete' w.pk %}"> <button>delete</button> </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

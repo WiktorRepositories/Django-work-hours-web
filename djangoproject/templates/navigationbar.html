@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          {% if user.is_authenticated %}
+          <a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">{{User.name}} log out</a>
+          {% else %}
+          <a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">| Log in |</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'account_register' %}">| Register new user |</a>
+          {% endif %}
+        </li>
+
+        {% include "drop_menu_a00.html" %}
+        {% include "drop_menu_a10.html" %}
+        {% include "drop_menu_a11.html" %}
+
+        {% if user.is_authenticated %}
+        {% include "drop_menu_a20.html" %}
+        {% else %}
+        <a class="nav-link active" aria-current="page" href="">Log in to see your hours</a>
+        {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</nav>

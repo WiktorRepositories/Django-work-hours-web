@@ -1,0 +1,37 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col"> Username </th>
+                <th scope="col"> First name </th>
+                <th scope="col"> Last name </th>
+                <th scope="col"> Email </th>
+                <th scope="col"> Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{user.id}}</th>
+                <td scope="row"> {{ user.username }} </td>
+                <td scope="row"> {{ user.first_name }} </td>
+                <td scope="row"> {{ user.last_name }} </td>
+                <td scope="row"> {{ user.email }} </td>
+                <td>
+                    <div>
+                        <form action="" method="post" id="id-user-register">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" value="submit">
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

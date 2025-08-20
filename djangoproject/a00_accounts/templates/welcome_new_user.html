@@ -1,0 +1,19 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+{% if user %}
+<div class="list-group">
+  <ul class="list-group">
+    <li class="list-group-item active" aria-current="true">
+      <span> New user created {{ user.username }}</span>
+    </li>
+    <li class="list-group-item">User code: {{ user.first_name }}</li>
+    <li class="list-group-item">Username: {{ user.last_name }}</li>
+    <li class="list-group-item">User email: {{ user.email }}</li>
+  </ul>
+</div>
+{% else %}
+<h1> ERROR user does not exist! </h1>
+{% endif %}
+
+{% endblock %}

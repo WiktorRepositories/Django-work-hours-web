@@ -1,0 +1,34 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">srccode</th>
+        <th scope="col">email</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{mail.id}}</th>
+        <td>{{mail.srccode}}</td>
+        <td>{{mail.email}}</td>
+        <td>{{mail.firstName}}</td>
+        <td>{{mail.lastName}}</td>
+        <td>{{mail.description}}</td>
+        <td>
+          <div>
+            {% include "form_mail.html" %}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

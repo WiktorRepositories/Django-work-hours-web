@@ -1,0 +1,36 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<br>
+<h2>Admin users delete and modification</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"> ID/PK </th>
+      <th scope="col"> Username </th>
+      <th scope="col"> First name </th>
+      <th scope="col"> Last name </th>
+      <th scope="col"> Email </th>
+      <th scope="col"> Link </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for u in users %}
+    <tr>
+      <th scope="row"> {{ u.id }} </th>
+      <td scope="row"> {{ u.username }} </td>
+      <td scope="row"> {{ u.first_name }} </td>
+      <td scope="row"> {{ u.last_name }} </td>
+      <td scope="row"> {{ u.email }} </td>
+      <td scope="col">
+        <a href="{% url 'admin_user_modify' u.pk %}"> <button>change</button> </a>
+        <a href="{% url 'admin_user_delete' u.pk %}"> <button>delete</button> </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
