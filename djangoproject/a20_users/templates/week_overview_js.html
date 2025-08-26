@@ -39,26 +39,19 @@
 {{ json_weekhours|json_script:"object_data"}}
 <script>
 
+  const COLS_AMOUNT = 8;
+  const BASE_LINK = "/a20_users/xday_overview/";
+
   function createTabele(tablebody, datatime, objectData) {
-    var newRowTr = document.createElement("tr");
-    var newColTd1_data = document.createElement("td");
-    var newColTd2_travelStart = document.createElement("td");
-    var newColTd3_travelEnd = document.createElement("td");
-    var newColTd4_workStart = document.createElement("td");
-    var newColTd5_workEnd = document.createElement("td");
-    var newColTd6_standardTime = document.createElement("td");
-    var newColTd7_projectMachine = document.createElement("td");
-    var newColTd8_netzVorgang = document.createElement("td");
+    let newRowTr = document.createElement("tr");
+    let newRowArray = [];
+    for (let i = 0; i < COLS_AMOUNT; ++i) {
+      let newTD = document.createElement("td");
+      newRowArray.push(newTD);
+    }
     var newColTd9_a = document.createElement("a");
 
-    newRowTr.appendChild(newColTd1_data);
-    newRowTr.appendChild(newColTd2_travelStart);
-    newRowTr.appendChild(newColTd3_travelEnd);
-    newRowTr.appendChild(newColTd4_workStart);
-    newRowTr.appendChild(newColTd5_workEnd);
-    newRowTr.appendChild(newColTd6_standardTime);
-    newRowTr.appendChild(newColTd7_projectMachine);
-    newRowTr.appendChild(newColTd8_netzVorgang);
+    newRowArray.forEach(function (item) { newRowTr.appendChild(item); });
     newRowTr.appendChild(newColTd9_a);
 
     if (objectData && (datatime === objectData?.date)) {
@@ -76,7 +69,7 @@
       var link = document.createTextNode("change");
       newColTd9_a.appendChild(link);
       newColTd9_a.title = "change";
-      newColTd9_a.href = `/a20_users/xday_modify/${objectData.id}/${datatime}`;
+      newColTd9_a.href = `${BASE_LINK}${datatime}`;
     }
     else {
       newColTd1_data.innerText = datatime;
@@ -91,8 +84,9 @@
       var link = document.createTextNode("add-new");
       newColTd9_a.appendChild(link);
       newColTd9_a.title = "add-new";
-      newColTd9_a.href = `/a20_users/xday_modify/${0}/${datatime}`;
+      newColTd9_a.href = `${BASE_LINK}${datatime}`;
     }
+    lastDate = datatime
 
     tablebody.appendChild(newRowTr);
   }
@@ -102,20 +96,19 @@
   var hListData = JSON.parse(document.getElementById("list_data").textContent);
   var hObjectData = JSON.parse(document.getElementById("object_data").textContent);
 
-
+  var lastDate = hListData[0]
   if (hObjectData) {
     var j = 0;
     for (let i = 0; i < hListData.length; ++i) {
       createTabele(htbody, hListData[i], hObjectData[j]);
-      if (hListData[i] === hObjectData[j]?.date) {
-        j++;
-      }
+
+
+      if (hListData[i] === hObjectData[j]?.date) j++;
+      lastDate = hListData[j]
     }
   }
   else {
-    for (let i = 0; i < hListData.length; ++i) {
-      createTabele(htbody, hListData[i], null);
-    }
+    for (let i = 0; i < hListData.length; ++i) createTabele(htbody, hListData[i], null);
   }
 
 </script>

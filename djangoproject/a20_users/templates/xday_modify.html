@@ -1,8 +1,6 @@
 {% extends "main_page.html" %}
 {% block MAIN_PAGE %}
 
-{% include "_form_user_hours.html" %}
-
 <div>
   <table class="table table-striped-columns">
     <thead>
@@ -23,31 +21,33 @@
       </tr>
     </thead>
     <tbody>
-      {% for i  in currententry %}
+
       <tr>
         <th scope="row">{{cd}}</th>
 
-        <td>{{i.travel_start}}</td>
-        <td>{{i.travel_end}}</td>
+        <td>{{uwt.travel_start}}</td>
+        <td>{{uwt.travel_end}}</td>
 
-        <td>{{i.work_start}}</td>
-        <td>{{i.work_end}}</td>
+        <td>{{uwt.work_start}}</td>
+        <td>{{uwt.work_end}}</td>
 
-        <td>{{i.workimes_standard}}</td>
+        <td>{{uwt.workimes_standard}}</td>
 
-        <td>{{i.project_machine}}</td>
-        <td>{{i.netzplan_vorgang}}</td>
+        <td>{{uwt.project_machine}}</td>
+        <td>{{uwt.netzplan_vorgang}}</td>
 
         <td>Enter/Update</td>
       </tr>
-      {% endfor %}
+
     </tbody>
   </table>
 
 </div>
 
+{% include "_form_user_hours.html" %}
+
 <div>
-  <a href="{% url 'week_overview' %}"> <button>Go back</button> </a>
+  <a href="{% url 'xday_overview' cd=cd %}"> <button>Go back</button> </a>
 </div>
 
 {% endblock %}
