@@ -1,0 +1,106 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+{% include "_form_filter_date.html" %}
+
+<div>
+  <table class="table table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">Data</th>
+        <th scope="col">Travel start</th>
+        <th scope="col">Travel end</th>
+
+        <th scope="col">Work start </th>
+        <th scope="col">Work end </th>
+
+        <th scope="col">Worktimes standard</th>
+
+        <th scope="col">Project</th>
+        <th scope="col">Netz/Vor</th>
+
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody id="id_week_overview_js">
+
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
+
+<!-- ============================================================ -->
+
+{% block JAVASCRIPT_EXTEND %}
+
+{% load static %}
+{{ iso_date_list|json_script:"list_data" }}
+{{ json_weekhours|json_script:"object_data"}}
+{{ json_link_dir|json_script:"link_dir"}}
+<script>
+
+  var list_date = JSON.parse(document.getElementById("list_data").textContent);
+  var list_JSON = JSON.parse(document.getElementById("object_data").textContent);
+  var link_dir = JSON.parse(document.getElementById("link_dir").textContent);
+
+  var ROW_AMOUNT = list_date.length;
+  var EMPTY_ROW = { date: "--", tr_start: "--", tr_end: "--", wo_start: "--", wo_end: "--", wo_stan: "--", pr_ma: "--", ne_vo: "--" };
+
+  function MergeDateShowEmpty(refHtmlEl, refdatelist, refjsontable) {
+    var _a;
+    var hintDate = "";
+    var jsonTabActive = true;
+    var idx_i = 0;
+    var idx_j = 0;
+    while (idx_i < ROW_AMOUNT) {
+      hintDate = refdatelist[idx_i];
+      var linkData = { name: "", dir: `${link_dir}${hintDate}` };
+      if (jsonTabActive && (hintDate === ((_a = refjsontable[idx_j]) === null || _a === void 0 ? void 0 : _a.date))) {
+        linkData.name = "change";
+        AppendRow(refHtmlEl, refjsontable[idx_j], linkData);
+        if (++idx_j >= refjsontable.length)
+          jsonTabActive = false;
+      }
+      else {
+        linkData.name = "add new";
+        EMPTY_ROW.date = hintDate;
+        AppendRow(refHtmlEl, EMPTY_ROW, linkData);
+        idx_i++;
+      }
+    }
+  }
+  function AppendRow(refHtmlEl, reData, linkData) {
+    var newRowTR = document.createElement("tr");
+    for (var i in reData) {
+      var newCell_1 = document.createElement("td");
+      newCell_1.innerText = reData[i];
+      newRowTR.appendChild(newCell_1);
+    }
+    var newCell = document.createElement("a");
+    var newLink = document.createTextNode(linkData.name);
+    newCell.appendChild(newLink);
+    newCell.title = linkData.name;
+    newCell.href = linkData.dir;
+    newRowTR.appendChild(newCell);
+    refHtmlEl.appendChild(newRowTR);
+  }
+  var htableBody = document.querySelector("tbody[id=id_week_overview_js]");
+  if (htableBody) {
+    if (list_JSON) {
+      MergeDateShowEmpty(htableBody, list_date, list_JSON);
+      list_JSON = null;
+    }
+    else
+      list_date.forEach(i => {
+        AppendRow(htableBody, EMPTY_ROW, { name: "add new", dir: `${link_dir}${i}` });
+      });
+  }
+
+  list_date = null;
+  link_dir = null;
+  EMPTY_ROW = null;
+
+</script>
+
+{% endblock %}
