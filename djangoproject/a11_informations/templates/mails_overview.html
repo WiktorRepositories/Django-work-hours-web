@@ -1,38 +1,40 @@
 {% extends "main_page.html" %}
 {% block MAIN_PAGE %}
 
-{% include "form_mail.html" %}
+{% include "_form_mail.html" %}
 
 <br>
 <h2>All mails data</h2>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col"> ID/PK </th>
-      <th scope="col"> Short name </th>
-      <th scope="col"> Email </th>
-      <th scope="col"> Name </th>
-      <th scope="col"> Description </th>
-      <th scope="col"> Link </th>
-    </tr>
-  </thead>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"> ID/PK </th>
+        <th scope="col"> Short name </th>
+        <th scope="col"> Email </th>
+        <th scope="col"> Name </th>
+        <th scope="col"> Description </th>
+        <th scope="col"> Link </th>
+      </tr>
+    </thead>
 
-  <tbody>
-    {% for m in mails %}
-    <tr>
-      <th scope="row"> {{ m.id }} </th>
-      <td scope="row"> {{ m.short_name }} </td>
-      <td scope="row"> {{ m.email }} </td>
-      <td scope="row"> {{ m.firstName }} {{ m.lastName }} </td>
-      <td scope="row"> {{ m.description }} </td>
-      <td scope="col">
-        <a href="{% url 'mail_modify' m.pk %}"> <button>change</button> </a>
-        <a href="{% url 'mail_delete' m.pk %}"> <button>delete</button> </a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    <tbody>
+      {% for m in mails %}
+      <tr>
+        <th scope="row"> {{ m.id }} </th>
+        <td scope="row"> {{ m.short_name }} </td>
+        <td scope="row"> {{ m.email }} </td>
+        <td scope="row"> {{ m.firstName }} {{ m.lastName }} </td>
+        <td scope="row"> {{ m.description }} </td>
+        <td scope="col">
+          <a href="{% url 'mail_modify' m.pk %}"> <button>change</button> </a>
+          <a href="{% url 'mail_delete' m.pk %}"> <button>delete</button> </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
 {% endblock %}

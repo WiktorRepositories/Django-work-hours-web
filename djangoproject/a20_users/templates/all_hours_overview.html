@@ -47,7 +47,7 @@
 
         <td>
           <a href="{% url 'all_hours_modify' i.pk %}"> <button>change</button> </a>
-          <a href="{% url 'xday_delete' i.pk %}"> <button>delete</button> </a>
+          <a href="{% url 'xday_delete' i.pk i.date_to_iso %}"> <button>delete</button> </a>
         </td>
       </tr>
       {% endfor %}

@@ -1,0 +1,45 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+{% include "_form_countries_iso.html" %}
+
+<br>
+<h2>All worktimes ranges:</h2>
+
+<div>
+  <table class="table table-striped">
+
+    <thead>
+      <tr>
+        <th scope="col"> ID/PK </th>
+        <th scope="col"> Country name </th>
+        <th scope="col"> State Name </th>
+        <th scope="col"> sovereign </th>
+        <th scope="col"> name A-2 </th>
+        <th scope="col"> name A-3 </th>
+        <th scope="col"> iso number </th>
+        <th scope="col"> Link </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for i in query_set %}
+      <tr>
+        <th scope="row"> {{ i.id }} </th>
+        <td scope="row"> {{ i.name }} </td>
+        <td scope="row"> {{ i.stateName }} </td>
+        <td scope="row"> {{ i.A_2 }}</td>
+        <td scope="row"> {{ i.A_3 }}</td>
+        <td scope="row"> {{ i.num }}</td>
+        <td scope="col">
+          <a href="{% url 'countries_modify' i.pk %}"> <button>change</button> </a>
+          <a href="{% url 'countries_delete' i.pk %}"> <button>delete</button> </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+</div>
+
+{% endblock %}

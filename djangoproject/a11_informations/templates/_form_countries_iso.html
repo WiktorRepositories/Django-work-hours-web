@@ -1,0 +1,30 @@
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"> Country name </th>
+        <th scope="col"> State Name </th>
+        <th scope="col"> sovereign </th>
+        <th scope="col"> name A-2 </th>
+        <th scope="col"> name A-3 </th>
+        <th scope="col"> iso number </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <form action="" method="post">
+          {% csrf_token %}
+          <th scope="row"> {{form.name}} </th>
+          <th scope="row">{{form.stateName}}</th>
+          <th scope="row">{{form.sovereign}}</th>
+          <th scope="row">{{form.a2}}</th>
+          <th scope="row">{{form.a3}}</th>
+          <th scope="row">{{form.numb}}</th>
+          <td> <input type="submit" value="Submit"> </td>
+          </th>
+        </form>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

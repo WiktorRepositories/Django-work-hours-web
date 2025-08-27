@@ -1,0 +1,38 @@
+{% extends "main_page.html" %}
+{% block MAIN_PAGE %}
+
+<div>
+  <h4>This current enry will be modified</h4>
+</div>
+
+<div>
+  <table class="table table-striped">
+
+    <thead>
+      <tr>
+        <th scope="col"> Country name </th>
+        <th scope="col"> State Name </th>
+        <th scope="col"> sovereign </th>
+        <th scope="col"> name A-2 </th>
+        <th scope="col"> name A-3 </th>
+        <th scope="col"> iso number </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td scope="row"> {{ country.name }} </td>
+        <td scope="row"> {{ country.stateName }} </td>
+        <td scope="row"> {{ country.sovereign }} </td>
+        <td scope="row"> {{ country.A_2 }}</td>
+        <td scope="row"> {{ country.A_3 }}</td>
+        <td scope="row"> {{ country.num }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+{% include "_form_countries_iso.html" %}
+
+{% endblock %}

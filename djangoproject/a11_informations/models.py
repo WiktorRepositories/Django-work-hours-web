@@ -5,9 +5,25 @@ from mylib.timecalculations import time_to_float
 # Create your models here.
 
 #--------------------------------------------------------------------------------------------------------------------
+# Data Base for different countries
+class Countries_ISO3166(models.Model):#{
+    name = models.CharField(max_length= 16)
+    stateName = models.CharField(max_length= 32)
+    sovereign = models.ForeignKey(to= "Countries_ISO3166", null= True, on_delete= models.SET_NULL, default= None)
+    A_2 = models.CharField(max_length= 2, unique= True)
+    A_3 = models.CharField(max_length= 3, unique= True)
+    num = models.CharField(max_length= 3, unique= True)
+    #}
+    def __str__(self) -> str:#{
+        return f"{self.name}/{self.A_2}"
+    #}
+#====================================================================================================================
+
+#--------------------------------------------------------------------------------------------------------------------
 # Data Base for constant waork and break time
 class WorkTimesStandard(models.Model):
     # Base data types
+    # countryISO = models.ForeignKey(to= Countries_ISO3166, on_delete= models.SET_NULL, null= True, default= None)
     country = models.CharField(max_length= 8, null= False)
     description = models.CharField(max_length= 16, null= True)
     workTime = models.TimeField(auto_now= False, auto_now_add= False)

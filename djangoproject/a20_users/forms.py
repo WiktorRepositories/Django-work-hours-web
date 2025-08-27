@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from a11_informations.models import WorkTimesStandard
 from a20_users.models import ProjectMachines, NetzplanVorgang
 
-class FormWorktimeEntry(forms.Form):
+class FormWorktimeEntry(forms.Form):#{
     date = forms.DateField(required= False)
 
     travel_start = forms.TimeField(required= False)
@@ -17,9 +17,9 @@ class FormWorktimeEntry(forms.Form):
 
     project_machine = forms.ModelChoiceField(queryset= ProjectMachines.objects.all(), required= False)
     netzplan_vorgang = forms.ModelChoiceField(queryset= NetzplanVorgang.objects.all(), required= False)
+#}
 
-
-class FormAdminWorktimeEntry(forms.Form):
+class FormAdminWorktimeEntry(forms.Form):#{
     user = forms.ModelChoiceField(queryset= User.objects.all(), required= False)
 
     date = forms.DateField(required= False)
@@ -34,8 +34,8 @@ class FormAdminWorktimeEntry(forms.Form):
 
     project_machine = forms.ModelChoiceField(queryset= ProjectMachines.objects.all(), required= False)
     netzplan_vorgang = forms.ModelChoiceField(queryset= NetzplanVorgang.objects.all(), required= False)
-
-    def clean(self) -> dict[str, Any] | None:
+    #}
+    def clean(self) -> dict[str, Any] | None:#{
         cleaned_data:dict = super().clean() # type: ignore
 
         tuser = cleaned_data.get("user")
@@ -61,4 +61,5 @@ class FormAdminWorktimeEntry(forms.Form):
             raise forms.ValidationError("Netzplan and vorgang is not choisen")
         
         return cleaned_data
+    #}
 
